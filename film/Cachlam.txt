@@ -1,0 +1,73 @@
+-PUBLIC : file tĩnh: css,js,img,font...
+-RESOURCE: views: render ra view ứng dụng nodejs
++ DÙng template engine handlebars: Quản lý layout, patials, load layout tự động
++ SCSS: tích hợp css --> viết css nhanh hơn
+
+// lấy mẫu express : nodejs express ( google) + getting started + "Next helloworld"
+Cachlam
+b1- Cài nodemon: npm install nodemon
+b2- vào hàm scripts trong package.json thêm "start": "nodemon index.js",
+b3- Ngắn server và chạy lại. gõ npm start
+-- Tác dụng k cần ctrl c để ngắt server và gọi lại node index.js
+-- Muốn debug code : thêm --inspect sau chữ nodemon lúc nãy--> hiện ra item nodejs ở 1 bên console
+
+
+// Add index.js lên github
+// Cài thư viện morgan : npm i morgan --save-dev
+Khai báo: var morgan = require('morgan')
+Sử dụng: app.use(morgan('combined'))
+Tác dụng: để thông tin xem server đã nhận được dữ liệu hay chưa dưới terminal
+// template engines (handlebars) : Sử dụng handlebars
+var exphbs  = require('express-handlebars');
+Khởi tạo: const handlebars  = require('express-handlebars');
+Biết thêm về __dirname, path.join
+//  Cài thư viện npm i node-sass --> Dùng bootstrap
+Tạo file app.scss trong folder scss. Ném file scss sang public
+- Vào package.json vào scripts Thêm "watch":"node-sass <input> [output]" --> với input: src/resource/scss/app.scss
+và output: src/public/css/app.css
+vậy khi viết css ở mục app.scss trong resourece và chạy npm run watch thì sẽ tự động combine vào app.css trong src/public/css/app.css(output)
+-- Muốn nhanh hơn: đặt --watch ở sau node-sass --> Khi ctrl + s tự động combine mà không cần chạy npm run watch
+Lắng nghe js json scss --> tạo file nodemon.js bằng tầng với src và thêm {"ext": "js json scss"}
+// Dính bootstrap
+// Query parameters
+Thường dùng với get.
+Cách làm: bật debug node vào file + resource 
+Khi debug  ấn ctrl + \ để chạy lại. Gõ localhost:3000\search?q = f8 lap trinh&ref = mycv & author = sondn
+Sau dấu ? tương ứng với key , sau đó cứ thêm value gõ &.
+// Form default behavior
+method ở form và phương thức trong index.js phải giống nhau.
+Gán name cho input[text] thì query parameters ở trên url sẽ có .../?q = cái mình nhập
+gán action = "/news" thì khi chạy submit query parameters ở trên url sẽ chạy sang /news/?q = cái mình nhập
+// Phương thức POST: Khi muốn gửi dữ liệu từ phía client lên server
+PT GET: Nhận dữ liệu từ server về phía client
+Phương thức nào cũng là gửi yêu cầu từ Client -> Server xử lý em nhé.
+Em xem video mô hình Client - Server trong danh sách phát để nắm được bản chất nhé.
+GET để gửi yêu cầu lên server ý muốn nói rằng "Tôi cần lấy data về client, server trả cho tôi đi".
+Phương thức POST thì "Tôi mang data từ client lên cho ông đây server, lưu lại đi".
+- Với post: Khi làm tương tự gán name cho input[text] thì khi chạy submit sẽ lưu ở form data chứ không lưu trên link như query parameters
+vd với select thì lấy value
+---> Tăng tính bảo mật khi nhập email, password ....
+-Với query parameters thì muốn debug console.log --> req.query
+-Với form data thì muốn debug console.log --> req.body (Phải khai báo thư viện app.use(express.urlencoded());  app.use(express.json());)
+Từ ver 4.16 nhờ express tích hợp sẵn thư viện Body-parse, qsnpm nó lấy ra object mà thuộc tính cho phép mình có thể lấy ra
+// Mô hình mvc
+Model-View-Controller
+Local host --- Hosting : nơi để lưu trữ. localhost : cục bộ, Hosting: 
+Chuyển đổi mô hình mvc
+Lưu ý: khi viết dạng constructor hoặc class thì viết hoa chữ cái đầu của các từ
+Còn khi exports ra ngoài khởi tạo 1 đối tượng thì không cần viết hoa chữ cái đầu
+- Bóc tách tạo kiểu mvc : 
+vd :
+Lúc đầu: router.use('/', (req, res) =>{
+       res.render('news');
+});
+từ route(app) từ file index.js chạy đến route(app) ở index.js trong folder routes lại chạy đến news 
+--> vào hàm index nhỏ trong file NewsController
+// Prettier: Format lại code nhìn đẹp hơn, tiêu chuẩn hơn
+- npm i prettier lint-staged husky để cài
+- vào package.json thêm     "beautiful":"prettier --single-quote --trailing-comma all --tab-width 4 --write src/**/*.{js,json,scss,txt}" ở hàm scripts
+rồi chạy npm run beautiful
+lint-staged : 
+
+
+

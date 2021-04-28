@@ -1,0 +1,4 @@
+req: request: Chứa những thông tin mà ứng dụng gửi lên server. Chứa tất cả thông tin liên quan đến yêu cầu gửi đi. Từ biến req lấy ra được đường
+dẫn yêu cầu, phương thức yêu cầu--> biết được client muốn gì để mình biết xử lí và trả về cho client cái đấy
+res: responsive: Khi server nhận được request phải xử lí, trả về cho client dựa vào res
+res.render : do tích hợp với engine handlebars để render được ra view. 

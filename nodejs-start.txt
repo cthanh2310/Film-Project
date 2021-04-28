@@ -1,0 +1,4 @@
+nodejs-start
+engine: lõi, động cơ 
+nodejs được chạy bởi chrome's v8 javascript engine
+kiểm tra version nodejs : node -v
