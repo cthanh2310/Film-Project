@@ -1,7 +1,6 @@
 
 // const formData = {};
-function Validator(formSelector, options) {
-    if (!options) options = {};
+function Validator(formSelector) {
     console.log(formSelector);
     formElement = document.querySelector(formSelector);
     // console.log(formElement);
@@ -119,7 +118,6 @@ function Validator(formSelector, options) {
                 // console.log(values);
                 return values; 
             }, {});
-            options.onSubmit(formValues);
             
             document.querySelector(formSelector).submit()
         }
@@ -127,8 +125,5 @@ function Validator(formSelector, options) {
 
     }
 }
-Validator('#register-form',{
-    onSubmit: function(data){
-        console.log(data)
-    }                                                                                                                                                                                                                                                                                                                                 
-});    
+
+Validator('#login-form');   

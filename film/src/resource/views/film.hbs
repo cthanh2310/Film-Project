@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="css/film.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row" style="margin-top: 20px; height: 170px;  background-color: #191919; ">
+            <a href="/">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxITEBIQEBIVExAQFhgQERIWERsQEhURGhIWFhURExgYHiggGBslGxYaITEiKzU3Ly4wFx81ODMsQygtLisBCgoKDg0OGhAQGzclHyUzLSs3Lys1MjUtLjc4MSsrNy03Ny4vNy03LTctLzUvKysvMS4rLSsrLzUrLy0rLTcuLf/AABEIAMYA/gMBIgACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAABAYBAgUDBwj/xAA4EAACAgEDAgQEAwYFBQAAAAABAgARAxIhMQRBBRMiUQYyYXEjgaEUQpGx0fBSYnLB8QcWM6Ky/8QAGgEBAAIDAQAAAAAAAAAAAAAAAAMEAQIFBv/EAC0RAQABAwIEBAYCAwAAAAAAAAABAgMRBCESQVHwBRMxYSJxgZGx4TLxocHR/9oADAMBAAIRAxEAPwD5HERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQERPVunYAEirsgWLoVuR2G/f2JmcGXlE6nhXSq1llvTfqJpftXc7H7XvO10iqrgacbY7ogYhsTVDXXqYe39JNbsTVvlpcr4IyqMS3+M+GWAFVOKZggUL/mahe/HYD6SGnw+rDQpPmjmjqUAcs5O35D295tVpa4nEIqtVbpjMz31VyJ0fFfBsuDdwCh4dd1+l91M50gqoqpnFUYlLbuU3KeKicwRETVuREQEREBERAREQEREBERAREQEREBERAREQEyBew5MxPXAaIIAJB2FXv2mYHR6LpNBVmA17t6iQF9qC7s12K7/UbnreTj0qxtmIomygYkclb7+3PAmOmwqi24APzXRuv72+v17+/VY1CAqpfbcMmpeR+JQ3NVf8t50KKIppSzT5MZn1n7fPv1c1OmfIoCUgZvw3sKDj1bAbC6PFbCvfcdPBmXAhOYhnsKy3w1bV3OxsmQul8bwoXvU13vWx+grgX/AD5kLxbxfXQxArqFudWpiTvQPb619JiLlFFPFE7uLXTevXJpmJ4evp+/2sXhrEjXsiG3azpBskigeBvVfrtvNz50w4yVUFq2AFFmPF1vuZQ+izuuQLqIs6dyfS59Iejt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"
+                    style="width: 190px; height: 170px; position: absolute; z-index: 2; border-radius: 5px;" alt="">
+            </a>
+            <div class="category">
+                <a href="/theloai/phimmoi"> Phim mới </a>
+                <a href="/theloai/phimle"> Phim lẻ </a>
+                <a href="/theloai/phimbo"> Phim bộ </a>
+                <a href="/theloai/phimhoathinh"> Phim hoạt hình </a>
+                <a href="/theloai/phimchieurap"> Phim chiếu rạp </a>
+            </div>
+
+
+            <li class="nav-item dropdown" style="margin-left: auto; margin-top: inherit; ">
+                <a class="nav-link btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    style="border-radius: 10px; border: none;opacity: 1;">
+                    <img src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png"
+                        style="width: 23px; height: 23px; border-radius: 3px; " alt="">
+                    <span style="font-family: consolas; color: lightblue;">{{account.fullname}}</span>
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Nội dung của bạn</a>
+                    <a class="dropdown-item" href="#">Phim đã xem</a>
+                    <a class="dropdown-item" href="#">Ưa thích</a>
+                    <div class="dropdown-divider"></div>
+
+                    {{#if account.role}}
+                    <a class="dropdown-item" href="/update">Thêm phim</a>
+                    <a class="dropdown-item" href="/edit">Sửa phim</a>
+                    <a class="dropdown-item" href="/remove">Xóa phim</a>
+
+                    {{/if}}
+                    <a class="dropdown-item" href="/login">Đăng xuất</a>
+                </div>
+            </li>
+
+        </div>
+        <div class="form-example row container-sm">
+            <form class="example" action="/search" method="GET" style="display: flex;">
+                <input type="text" placeholder="Bạn muốn tìm phim gì?" name="name">
+                <button type="submit"><i class="search">Tìm kiếm</i></button>
+            </form>
+
+        </div>
+        <div class="mt-4">
+            <div id="content" class="row">
+                {{#each listfilm}}
+                <div class="col-sm-6 col-lg-3">
+                    <a href="/film/{{this.slug}}"><img style="height: 440.5px" src="{{this.image}}" class="card-img-top"
+                            alt="..."></a>
+                    <div class="card-body">
+                        <a style="text-decoration: solid; color: cornsilk" href="/film/{{this.slug}}">
+                            <h4 onhover="this.style.color='yellow';" class="card-title">{{this.name}}</h4>
+                        </a>
+                        <div class="info-category">
+                            <i class='fas fa-flag' style='font-size:24px'></i>
+                            <a href="the-loai/{{this.category}}"
+                                style="text-decoration: solid; color: cornsilk">{{this.category}}</a>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            <nav style="margin-left: 450px; background-color: #081B27;" aria-label="Page navigation example">
+                <ul class="pagination" style="background-color: #081B27;">
+                    <li class="page-item">
+                        <a class="page-link" onclick="loadPreviousPage()" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                    {{#times totalPage }}
+                    <li class="page-item"><a class="page-link" href="#" onclick="loadPage({{this}})">{{this}}</a></li>
+                    {{/times}}
+
+                    <li class="page-item">
+                        <a onclick="loadNextPage()" class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+        </div>
+        <div id="demo"></div>
+    </div>
+</body>
+<script src="/validate/pagination.js"></script>
+<script>
+    /* ------------------------------------------- Code it myself ---------------------------------- */
+    var currentPage = 0;
+
+    function loadPage(page) {
+        currentPage = page;
+        $.ajax({
+            url: '/film?page=' + page,
+            type: 'POST',
+
+        })
+            .then(films => {
+                document.querySelector('#content').innerHTML = '';
+                var content = '';
+                for (var film of films) {
+                    document.querySelector('#content').innerHTML += `<div class="col-sm-6 col-lg-3">
+                         <a href="/film/${film.slug}"><img style="height: 440.5px" src="${film.image}" class="card-img-top"
+                                 alt="..."></a>
+                         <div class="card-body">
+                             <a style="text-decoration: solid; color: cornsilk" href="/film/${film.slug}">
+                                 <h4 onhover="this.style.color='yellow';" class="card-title">${film.name}</h4>
+                             </a>
+                             <div class="info-category">
+                                 <i class='fas fa-flag' style='font-size:24px'></i>
+                                 <a href="category" style="text-decoration: solid; color: cornsilk">${film.category}</a>
+                             </div>
+                         </div>
+                     </div>`
+                }
+                // window.location.href=`/film?page=${page}`;
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
+
+    function loadPreviousPage() {
+        currentPage--;
+        console.log(currentPage + 'in loadPreviousPage');
+        $.ajax({
+            url: '/film?page=' + currentPage,
+            type: 'POST',
+
+        })
+            .then(films => {
+                document.querySelector('#content').innerHTML = '';
+                var content = '';
+                for (var film of films) {
+                    document.querySelector('#content').innerHTML += `<div class="col-sm-6 col-lg-3">
+                         <a href="/film/${film.slug}"><img style="height: 440.5px" src="${film.image}" class="card-img-top"
+                                 alt="..."></a>
+                         <div class="card-body">
+                             <a style="text-decoration: solid; color: cornsilk" href="/film/${film.slug}">
+                                 <h4 onhover="this.style.color='yellow';" class="card-title">${film.name}</h4>
+                             </a>
+                             <div class="info-category">
+                                 <i class='fas fa-flag' style='font-size:24px'></i>
+                                 <a href="category" style="text-decoration: solid; color: cornsilk">${film.category}</a>
+                             </div>
+                         </div>
+                     </div>`
+                }
+                // window.location.href=`/film?page=${page}`;
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
+    function loadNextPage() {
+        currentPage++;
+        console.log(currentPage + 'in load next page')
+        $.ajax({
+            url: '/film?page=' + currentPage,
+            type: 'POST',
+
+        })
+            .then(films => {
+                document.querySelector('#content').innerHTML = '';
+                var content = '';
+                for (var film of films) {
+                    console.log(film);
+                    document.querySelector('#content').innerHTML += `<div class="col-sm-6 col-lg-3">
+                         <a href="/film/${film.slug}"><img style="height: 440.5px" src="${film.image}" class="card-img-top"
+                                 alt="..."></a>
+                         <div class="card-body">
+                             <a style="text-decoration: solid; color: cornsilk" href="/film/${film.slug}">
+                                 <h4 onhover="this.style.color='yellow';" class="card-title">${film.name}</h4>
+                             </a>
+                             <div class="info-category">
+                                 <i class='fas fa-flag' style='font-size:24px'></i>
+                                 <a href="category" style="text-decoration: solid; color: cornsilk">${film.category}</a>
+                             </div>
+                         </div>
+                     </div>`
+                }
+                // window.location.href=`/film?page=${page}`;
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
+
+    // ------------------------------- use library ----------------------------------------
+
+</script>
+
+</html>
