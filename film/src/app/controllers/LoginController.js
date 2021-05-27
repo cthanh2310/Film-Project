@@ -4,7 +4,7 @@ const path = require('path')
 var fs = require('fs');
 // var privateKey = fs.readFileSync('.../key/domain.csr');
 var privateKey = fs.readFileSync(path.resolve('film/src/key/private.pem'));
-
+var bcrypt = require('bcrypt');
 // const passport = require('passport')
 
 // passport.use(new LocalStrategy({
@@ -30,18 +30,24 @@ class LoginController {
         console.log('login store success!');
         accounts.findOne({
             email: req.body.email,
-            password: req.body.password
         })
             .then(data => {
                 if (data) {
-                    var token = jwt.sign({ _id: data._id }, privateKey, { algorithm: 'RS256' })
-                    // res.clearCookie('token');
-                    // res.cookie('token', token, { expires: new Date(Date.now() + 900000)});
-                    // console.log(res.cookies.token);
-                    return res.json({
-                        message: 'OK!',
-                        token: token
-                    })
+                    bcrypt.compare(req.body.password, data.password, function (err, result) {
+                        // result == true
+                        if (result) {
+                            var token = jwt.sign({ _id: data._id }, privateKey, { algorithm: 'RS256' })
+                            // res.clearCookie('token');
+                            // res.cookie('token', token, { expires: new Date(Date.now() + 900000)});
+                            // console.log(res.cookies.token);
+                            return res.json({
+                                message: 'OK!',
+                                token: token
+                            })
+                        } else {
+                            return res.json('Mật khẩu không đúng!')
+                        }
+                    });
                 } else {
                     return res.json('Login failed !')
                 }
