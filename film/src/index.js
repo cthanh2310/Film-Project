@@ -9,6 +9,7 @@ const cookieParser = require('cookie-parser');
 const LocalStrategy = require('passport-local').Strategy;
 
 const session = require('express-session');
+
 // const redis = require('redis')
 // const redisClient = redis.createClient()
 // const redisStore = require('connect-redis')(session);
@@ -54,7 +55,6 @@ app.use(
 //     }
 // })
 app.use(cookieParser());
-
 app.use(express.json());
 // XMLHTTP request, fetch, axios, ajax of jquery -->send database to server
 app.engine(

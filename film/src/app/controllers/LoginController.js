@@ -35,7 +35,6 @@ class LoginController {
             .then(data => {
                 if (data) {
                     var token = jwt.sign({ _id: data._id }, privateKey, { algorithm: 'RS256' })
-                    console.log(token);
                     // res.clearCookie('token');
                     // res.cookie('token', token, { expires: new Date(Date.now() + 900000)});
                     // console.log(res.cookies.token);

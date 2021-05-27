@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <form action="/create/store" method="POST" >
+            <div class="form-group">
+                <label class="form-label" for="">Name</label>
+                <input type="text" name="name" class="form-control" id="name">
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="">Description</label>
+                <input type="text" name="description" class="form-control" id="description">
+            </div>
+            <div class="form-group">
+                <label class="form-label" class="form-label" for="">Category</label>
+                <input type="text" name="category" class="form-control" id="category">
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="">Image</label>
+                <input type="text" name="image" class="form-control" id="image">
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="">slug</label>
+                <input type="text" name="slug" class="form-control" id="slug">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="">VideoId</label>
+                <input type="text" name="videoId" class="form-control" id="videoId">
+            </div>
+
+            <button style="margin-bottom: 10px;" class="form-submit">Thêm mới</button>
+
+        </form>
+    </div>
+</body>
+
+</html>

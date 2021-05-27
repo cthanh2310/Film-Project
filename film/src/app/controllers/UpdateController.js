@@ -1,21 +1,28 @@
-const films = require('../../app/models/films');
+const films = require('../models/films');
+const { mutipleMongooseToObject } = require('../../util/mongoose');
 
 class UpdateController {
-    update(req, res) {
-        res.render('update');
+    async update(req, res) {
+        films.find({})
+            .then((films) => {
+                res.render('update', { films: mutipleMongooseToObject(films) });
+            })
     }
-    store(req, res) {
-        const film = new films(req.body); 
-        console.log('film: ' +  film);
-        film.save()
-            .then(() => {
-                res.redirect('/film');
+    async update_post(req, res) {
+        films.find({})
+            .then(async films => {
+                films = await mutipleMongooseToObject(films);
+                return res.json(films);
             })
-            .catch(err => {
-                res.json(err);
-            })
+    }
+    async store(req, res, next) {
+        var id = req.body.id;
+        console.log(id)
+        films.updateOne({_id: id}, req.body)
+            .then(() => res.redirect('/update'))
+            .catch(next)
+    }
 
-    }
+
 }
-
 module.exports = new UpdateController();

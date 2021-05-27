@@ -8,43 +8,114 @@
     <link rel="stylesheet" href="css/register.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <title>Document</title>
 </head>
 
 <body>
-    <div class="container">
-        <form action="/update/store" method="POST" >
-            <div class="form-group">
-                <label class="form-label" for="">Name</label>
-                <input type="text" name="name" class="form-control" id="name">
-            </div>
-            <div class="form-group">
-                <label class="form-label" for="">Description</label>
-                <input type="text" name="description" class="form-control" id="description">
-            </div>
-            <div class="form-group">
-                <label class="form-label" class="form-label" for="">Category</label>
-                <input type="text" name="category" class="form-control" id="category">
-            </div>
-            <div class="form-group">
-                <label class="form-label" for="">Image</label>
-                <input type="text" name="image" class="form-control" id="image">
-            </div>
-            <div class="form-group">
-                <label class="form-label" for="">slug</label>
-                <input type="text" name="slug" class="form-control" id="slug">
-            </div>
+    <div class="row">
+        <div class="col-4">
+            <ul class="list-group">
+                <li class="list-group-item active" aria-current="true" style="font-size: large; background-color: #708090;"> Danh sách phim</li>
+                <input type="text" name="search" class="form-control" id="search" placeholder="Nhập phim gì đó?">
+                <button class="btn" style="font-size: large; background-color: #708090" onclick="search()">Tìm kiếm</button>
+                <div style="margin-top: 20px" class="list">
+                    {{#each films}}
+                    <li class="list-group-item">
+                        <a class="btn btn" style="font-size: 15px;" href="#" onclick="load('{{this.id}}')">{{this.name}}</a>
+                    </li>
+                    {{/each}}
+                </div>
 
-            <div class="form-group">
-                <label class="form-label" for="">VideoId</label>
-                <input type="text" name="videoId" class="form-control" id="videoId">
-            </div>
+            </ul>
+        </div>
+        <div class="col-8">
+            <form action="/update/store" method="POST">
+                <div class="form-group">
+                    <input type="hidden" name="id" class="form-control" id="id">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="">Name</label>
+                    <input type="text" name="name" class="form-control" id="name">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="">Description</label>
+                    <textArea type="text" name="description" class="form-control" id="description"></textArea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" class="form-label" for="">Category</label>
+                    <input type="text" name="category" class="form-control" id="category">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="">Image</label>
+                    <input type="text" name="image" class="form-control" id="image">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="">slug</label>
+                    <input type="text" name="slug" class="form-control" id="slug">
+                </div>
 
-            <button style="margin-bottom: 10px;" class="form-submit">Cập nhật</button>
-<iframe width="560" height="315" src="//ok.ru/videoembed/2529936739062" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+                <div class="form-group">
+                    <label class="form-label" for="">VideoId</label>
+                    <input type="text" name="videoId" class="form-control" id="videoId">
+                </div>
 
-        </form>
+                <button style="margin-bottom: 10px;" class="form-submit">Cập nhật</button>
+
+            </form>
+        </div>
     </div>
+    
 </body>
+<script>
+    function search() {
+
+        //        console.log(data)
+        $.ajax({
+            url: '/update',
+            type: 'POST'
+        })
+            .then(films => {
+                document.querySelector('.list').innerHTML = '';
+                var data = document.querySelector('#search').value;
+                var check = true;
+                for (var film of films) {
+                    if (film.name.toLowerCase().includes(data.toLowerCase())) {
+                        console.log(true)
+                        document.querySelector('.list').innerHTML += `<li class="list-group-item">
+                            <a href="#" class="btn btn" style="font-size: 15px;" onclick="load('${film.id}')">${film.name}</a>
+                        </li>`
+                        check = false;
+                    }
+                }
+                if (check) {
+                    document.querySelector('.list').innerHTML = `<h3><b>Không tìm thấy !</h3>`
+                }
+            })
+    }
+    function load(id) {
+
+        $.ajax({
+            url: '/update',
+            type: 'POST'
+        })
+            .then(films => {
+                for (var film of films) {
+                    console.log(film.id)
+                    if (film.id == id.toString()) {
+                        document.querySelector('#id').value = film.id;
+                        document.querySelector('#name').value = film.name;
+                        document.querySelector('#description').value = film.description;
+                        document.querySelector('#category').value = film.category;
+                        document.querySelector('#image').value = film.image;
+                        document.querySelector('#slug').value = film.slug;
+                        document.querySelector('#videoId').value = film.videoId;
+                        break;
+                    }
+                }
+            })
+    }
+</script>
 
 </html>

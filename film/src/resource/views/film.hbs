@@ -49,9 +49,9 @@
                     <div class="dropdown-divider"></div>
 
                     {{#if account.role}}
-                    <a class="dropdown-item" href="/update">Thêm phim</a>
-                    <a class="dropdown-item" href="/edit">Sửa phim</a>
-                    <a class="dropdown-item" href="/remove">Xóa phim</a>
+                    <a class="dropdown-item" href="/create">Thêm phim</a>
+                    <a class="dropdown-item" href="/update">Sửa phim</a>
+                    <a class="dropdown-item" href="/delete">Xóa phim</a>
 
                     {{/if}}
                     <div class="dropdown-divider"></div>
@@ -64,7 +64,7 @@
         <div class="form-example row container-sm">
             <form class="example" action="/search" method="GET" style="display: flex;">
                 <input type="text" placeholder="Bạn muốn tìm phim gì?" name="name">
-                <button type="submit"><i class="search">Tìm kiếm</i></button>
+                <button style="background-color: #708090;" type="submit"><i class="search">Tìm kiếm</i></button>
             </form>
 
         </div>
