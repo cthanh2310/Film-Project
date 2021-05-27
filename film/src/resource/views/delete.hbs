@@ -1,12 +1,9 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
     integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
     crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <body>
     <div class="search" style="margin-top: 20px; margin-bottom:20px">
@@ -36,23 +33,34 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Huỷ</button>
-                    <button type="button" class="btn btn-primary">Xóa bỏ</button>
+                    <button type="button" class="btn btn-primary" id="delete-And-redirect">Xóa bỏ</button>
                 </div>
             </div>
         </div>
     </div>
+    {{!-- Hidden form : to toggle Data by method Post via tag a --}}
+    <form id="formDelete" method="POST"></form>
 </body>
 
 <script>
 
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function () {  // fix error: $ is not defined
+        var id;
+        var formDelete = document.querySelector('#formDelete');
         $('#exampleModal').on('show.bs.modal', function (event) {
-            console.log(2)
             var button = $(event.relatedTarget) // Button that triggered the modal
-            var id = button.data('id') // Extract info from data-* attributes
+            id = button.data('id') // Extract info from data-* attributes
             console.log(id)
         })
+        var deleteAndRedirect = document.querySelector('#delete-And-redirect');
+        deleteAndRedirect.onclick = function () {
+            formDelete.action=`/delete/store/${id}`;
+            formDelete.submit();
+        }
+
+
     })
+
     function search() {
 
         //        console.log(data)
@@ -68,7 +76,7 @@
                     if (film.name.toLowerCase().includes(data.toLowerCase())) {
                         document.querySelector('.list').innerHTML += `<li style="display: flex" class="list-group-item">
             <p style="text-align: left;font-size: 15px;">${film.name}</p>
-            <a style="margin-left: auto;" href="/delete/${film.id}" data-toggle="modal"
+            <a style="margin-left: auto;" href="" data-id="${film.id}" data-toggle="modal"
                 data-target="#exampleModal">Xóa</a>
         </li>`
                         check = false;
